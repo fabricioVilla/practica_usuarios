@@ -1,0 +1,133 @@
+{
+    "schemas_usuario":{
+        "type": "object",
+        "properties": {
+            "nombre": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength":40,
+                "pattern": "^[A-Za-z]+$",
+                "errorMessage": {
+                    "type": "El campo nombre de ser una cadena de caracteres.",
+                    "minLength": "El campo nombre esta vacio.",
+                    "maxLength":"La longitud del campo nombre debe tener maximo 40 caracteres.",
+                    "pattern": "El campo nombre solo debe contener letras y no debe incluir números ni caracteres especiales."
+                }
+            },
+            "apellido_paterno": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength":40,
+                "pattern": "^[A-Za-z]+$",
+                "errorMessage": {
+                    "type": "El campo apellido_paterno de ser una cadena de caracteres",
+                    "minLength": "El campo apellido_paterno esta vacio",
+                    "maxLength":"La longitud del campo apellido_paterno debe tener maximo 40 caracteres",
+                    "pattern": "El campo apellido_paterno solo debe contener letras y no debe incluir números ni caracteres especiales."
+                }
+            },
+            "apellido_materno": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength":40,
+                "pattern": "^[A-Za-z]+$",
+                "errorMessage": {
+                    "type": "El campo apellido_materno de ser una cadena de caracteres",
+                    "minLength": "El campo apellido_materno esta vacio",
+                    "maxLength":"La longitud del campo apellido_materno debe tener maximo 40 caracteres",
+                    "pattern": "El campo apellido_materno solo debe contener letras y no debe incluir números ni caracteres especiales."
+                }
+            },
+            "correo": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength":40,
+                "pattern": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$",
+                "errorMessage": {
+                    "type": "El campo correo de ser una cadena de caracteres",
+                    "minLength": "El campo correo esta vacio",
+                    "maxLength":"La longitud del campo correo debe tener maximo 40 caracteres",
+                    "pattern": "La cadena debe ser una dirección de correo electrónico válida."
+                }
+            },
+            "telefono": {
+                "type": "string",
+                "minLength": 10,
+                "maxLength": 10,
+                "pattern": "^\\d+$",
+                "errorMessage": {
+                    "type": "El campo telefono de ser una cadena",
+                    "minLength": "El campo telefono tiene un longitud menor a 10",
+                    "maxLength":"El campo telefono tiene un longitud mayor a 10",
+                    "pattern": "El campo telefono solo debe contener numeros"
+                }
+            },
+            "usuario": {
+                "type": "string",
+                "minLength": 8,
+                "maxLength":30,
+                "pattern": "^[A-Za-z0-9]+$",
+                "errorMessage": {
+                    "type": "El campo usuario de ser una cadena",
+                    "minLength": "El campo usuario tiene un longitud minima de 8",
+                    "maxLength":"El campo usuario tiene un longitud mayor a 30",
+                    "pattern": "El campo usuario no debe incluir caracteres especiales"
+                }
+            },
+            "contrasenia": {
+                "type": "string",
+                "minLength": 10,
+                "maxLength":20,
+                "errorMessage": {
+                    "type": "El campo contrasenia de ser una cadena",
+                    "minLength": "El campo contrasenia tiene un longitud menor a 10",
+                    "maxLength":"El campo contrasenia tiene un longitud mayor a 20"
+                }
+            }
+        },
+        "required": ["nombre", "apellido_paterno", "telefono","usuario","contrasenia"],
+        "errorMessage": {
+            "required": {
+              "nombre":"El campo nombre es requerido",
+              "apellido_paterno":"El campo apellido_paterno es requerido",
+              "telefono":"El campo telefono es requerido",
+              "usuario":"El campo usuario es requerido",
+              "contrasenia":"El campo contrasenia es requerido"
+            }
+        }
+    },
+    "schema_login":{
+        "type": "object",
+        "properties": {
+            "usuario_o_telefono": {
+                "type": "string",
+                "minLength": 8,
+                "maxLength":30,
+                "pattern": "^[A-Za-z0-9]+$",
+                "errorMessage": {
+                    "type": "El campo usuario_o_telefono de ser una cadena",
+                    "minLength": "El campo usuario_o_telefono tiene un longitud minima de 8",
+                    "maxLength":"El campo usuario_o_telefono tiene un longitud mayor a 30",
+                    "pattern": "El campo usuario_o_telefono no debe incluir caracteres especiales"
+                }
+            },
+            "contrasenia": {
+                "type": "string",
+                "minLength": 10,
+                "maxLength":20,
+                "errorMessage": {
+                    "type": "El campo contrasenia de ser una cadena",
+                    "minLength": "El campo contrasenia tiene un longitud menor a 10",
+                    "maxLength":"El campo contrasenia tiene un longitud mayor a 20"
+                }
+            }
+        },
+        "required": ["usuario_o_telefono", "contrasenia"],
+        "errorMessage": {
+            "required": {
+              "usuario_o_telefono":"El campo usuario_o_telefono es requerido",
+              "contrasenia":"El campo contrasenia es requerido"
+            }
+        }
+    } 
+}

@@ -1,0 +1,3 @@
+
+# Ignorar el directorio de dependencias
+node_modules/

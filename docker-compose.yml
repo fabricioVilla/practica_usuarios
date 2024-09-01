@@ -1,0 +1,35 @@
+version: '3.9'
+
+services:
+
+  mongodbserver:
+    image: mongo
+    restart: always
+    container_name: mongodbserver
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+      - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+    networks:
+      - app_network
+      
+  microusuarios:
+    build:
+      context: ./microservicio
+    container_name: microusuarios
+    ports:
+      - 8081:8080
+    depends_on:
+      - mongodbserver
+    networks:
+      - app_network
+    env_file:
+      - .env
+
+volumes:
+  mongo-data:
+
+networks:
+  app_network:
+    driver: bridge
